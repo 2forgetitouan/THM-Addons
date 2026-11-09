@@ -87,28 +87,4 @@ public class OffhandMixin {
         // a failed park just leaves it for the next tick's HEAD to retry.
         if (!MeteorClient.mc.player.containerMenu.getCarried().isEmpty()) InventoryManager.parkCursor();
     }
-
-    public enum HeldItemFilter implements DescribedOption {
-        Off("Off", "Allows swaps with any main-hand item."),
-        OnlyWhenHolding("Only when holding", "Allows swaps only while holding a listed item."),
-        OnlyWhenNotHolding("Only when not holding", "Blocks swaps while holding a listed item.");
-
-        private final String label, description;
-
-        HeldItemFilter(String label, String description) {
-            this.label = label;
-            this.description = description;
-        }
-
-        public boolean allows(boolean listed) {
-            return switch (this) {
-                case Off -> true;
-                case OnlyWhenHolding -> listed;
-                case OnlyWhenNotHolding -> !listed;
-            };
-        }
-
-        @Override public String toString() { return label; }
-        @Override public String description() { return description; }
-    }
 }
