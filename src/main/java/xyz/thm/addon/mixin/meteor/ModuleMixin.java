@@ -13,6 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import xyz.thm.addon.settings.HeldItemFilter;
 
 @Mixin(value = Module.class, remap = false)
 public abstract class ModuleMixin {
@@ -42,7 +43,7 @@ public abstract class ModuleMixin {
             if (!(entry instanceof CompoundTag group)) continue;
             for (var value : group.getListOrEmpty("settings")) {
                 if (!(value instanceof CompoundTag setting) || !setting.getStringOr("name", "").equals("only-when-holding")) continue;
-                var mode = setting.getBooleanOr("value", false) ? OffhandMixin.HeldItemFilter.OnlyWhenHolding : OffhandMixin.HeldItemFilter.Off;
+                var mode = setting.getBooleanOr("value", false) ? HeldItemFilter.OnlyWhenHolding : HeldItemFilter.Off;
                 setting.putString("name", "held-item-filter");
                 setting.putString("value", mode.toString());
             }
