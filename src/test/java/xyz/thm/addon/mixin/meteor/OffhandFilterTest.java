@@ -15,7 +15,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.lang.reflect.Modifier;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static xyz.thm.addon.mixin.meteor.OffhandMixin.HeldItemFilter.*;
+import static xyz.thm.addon.settings.HeldItemFilter.*;
 
 class OffhandFilterTest {
     @Test

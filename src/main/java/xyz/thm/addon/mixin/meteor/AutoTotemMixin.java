@@ -63,7 +63,7 @@ public abstract class AutoTotemMixin {
         if (offhand == null || !offhand.isActive()) return true;
         var filter = offhand.settings.get("held-item-filter");
         var items = offhand.settings.get("held-items");
-        if (filter == null || items == null || !(filter.get() instanceof OffhandMixin.HeldItemFilter mode)
+        if (filter == null || items == null || !(filter.get() instanceof HeldItemFilter mode)
             || !(items.get() instanceof java.util.List<?> list)) return true;
         return mode.allows(list.contains(mc.player.getMainHandItem().getItem()));
     }

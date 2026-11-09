@@ -23,8 +23,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import xyz.thm.addon.modules.HighwayBuilderTHM;
-import xyz.thm.addon.settings.DescribedOption;
 import xyz.thm.addon.utils.InventoryManager;
+import xyz.thm.addon.settings.HeldItemFilter;
 
 import java.util.List;
 
